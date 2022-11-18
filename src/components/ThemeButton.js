@@ -22,7 +22,7 @@ const setTheme = (themeName) => {
     }
   })
 
-const themeButton = (buttonIcon) => {
+const buttonChanger = (buttonIcon) => {
     let moonIcon = `${<Icon icon="ion:moon-sharp" color="white" />}`
     let sunIcon = `${<Icon icon="ph:sun-dim-light" color="white" />}`
     if (themeName === 'theme-dark') {
@@ -31,3 +31,13 @@ const themeButton = (buttonIcon) => {
         buttonIcon = moonIcon
     }
 }
+
+function ThemeButton() {
+    return(
+        <div>
+            <button>{toggleButton}</button>
+        </div>
+    )
+}
+
+export default ThemeButton;
