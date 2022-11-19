@@ -16,14 +16,18 @@ class Latest extends Component {
     render() {
         return (
             <div id="news">
+                <ol>
                 {Object.keys(this.state.data).length && this.state.data.articles.map((data) => 
                 {return(
                     <div className="article">
-                        <a href={data.url}>{data.title}</a>
-                        <p>{data.description}</p>
-                        <p>{data.source.name}</p>
+                        <li>
+                            <a href={data.url}>{data.title}</a>
+                            <p>{data.description}</p>
+                            <p>{data.source.name}</p>
+                        </li>
                     </div>
                 )})}
+                </ol>
             </div>
         )
     }
