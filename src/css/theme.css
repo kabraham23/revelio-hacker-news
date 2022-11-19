@@ -1,0 +1,13 @@
+.light {
+    --color-primary: white;
+    --color-secondary: black;
+    --color-accent: orange;
+    --font-color: black;
+  }
+  
+  .dark {
+    --color-primary: black;
+    --color-secondary: white;
+    --color-accent: orange;
+    --font-color: white;
+  }

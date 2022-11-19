@@ -18,16 +18,3 @@
   align-items: center;
 }
 
-.theme-light {
-  --color-primary: white;
-  --color-secondary: black;
-  --color-accent: orange;
-  --font-color: black;
-}
-
-.theme-dark {
-  --color-primary: black;
-  --color-secondary: white;
-  --color-accent: orange;
-  --font-color: white;
-}

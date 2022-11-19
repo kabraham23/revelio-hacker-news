@@ -1,41 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Icon } from '@iconify/react';
 
-const setTheme = (themeName) => {
-    localStorage.setItem('theme', themeName);
-    document.documentElement.className = themeName;
-  }
-  
-  const toggleTheme = () => {
-    if(localStorage.getItem('theme') === 'theme-dark'){
-        setTheme('theme-light')
-    } else {
-        setTheme('theme-dark');
-    }
-  };
-  
-  (function(){
-    if(localStorage.getItem('theme') === 'theme-dark') {
-      setTheme('theme-dark');
-    } else {
-      setTheme('theme-light');
-    }
-  })
+import '../css/theme.css';
 
-const buttonChanger = (buttonIcon) => {
-    let moonIcon = `${<Icon icon="ion:moon-sharp" color="white" />}`
-    let sunIcon = `${<Icon icon="ph:sun-dim-light" color="white" />}`
-    if (themeName === 'theme-dark') {
-        buttonIcon = sunIcon
-    } else {
-        buttonIcon = moonIcon
-    }
-}
 
 function ThemeButton() {
+    const [theme, setTheme] = useState('light')
+    const toggleTheme = () => {
+        if (theme === 'light') {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+    };
+    
+    const buttonIcon = () => {
+        let moonIcon = `${<Icon icon="ion:moon-sharp" color="white" />}`
+        let sunIcon = `${<Icon icon="ph:sun-dim-light" color="white" />}`
+        if (theme === 'dark') {
+            buttonIcon = sunIcon
+        } else {
+            buttonIcon = moonIcon
+        }
+    };
+    useEffect(() => {
+        document.body.className = theme;
+    }, [theme]);
+
     return(
-        <div>
-            <button>{toggleButton}</button>
+        <div className={`App ${theme}`}>
+            <button onClick={toggleTheme}>{buttonIcon} Toggle Theme </button>
         </div>
     )
 }
