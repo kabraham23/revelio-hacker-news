@@ -11,7 +11,7 @@ function Header() {
                 <h1>Hacker News</h1>
                 <a href="/latest">latest</a>
                 <span> | </span>
-                <a href="#">starred</a>
+                <a href="/starred">starred</a>
             </div>
             <div className='header-right'>
                 <ThemeButton />

@@ -1,13 +1,13 @@
 .light {
     --color-primary: white;
     --color-secondary: black;
-    --color-accent: orange;
+    --color-accent: #f56f36;
     --font-color: black;
   }
   
   .dark {
     --color-primary: black;
     --color-secondary: white;
-    --color-accent: orange;
+    --color-accent: #f56f36;
     --font-color: white;
   }
