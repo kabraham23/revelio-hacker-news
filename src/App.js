@@ -1,7 +1,7 @@
 import './App.css';
 import React, { Component} from 'react';
 import { MemoryRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import { Icon } from '@iconify/react'
+import { Icon } from '@iconify/react';
 import ThemeButton from './components/ThemeButton.js';
 import Latest from './components/Latest.js';
 import Starred from './components/Starred.js';
