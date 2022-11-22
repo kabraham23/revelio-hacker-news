@@ -1,15 +1,24 @@
-import React, {Component} from 'react';
-import { connect } from 'react-redux';
-import { myAction } from '../actions/index.js';
+import React, {Component} from "react";
+import { connect } from "react-redux";
+import StarredItem from "./StarredItem.js";
 
 class Starred extends Component {
     render() {
-        return(
-            <div>
+        const listArticles = this.props.articles.map((reminder, index) => (
+            <StarredItem article={article} key={index} />
+        ));
 
+        return (
+            <div>
+                <h2>Saved Articles</h2>
+                {listArticles}
             </div>
-        )
+        );
     }
 }
 
-export default Starred;
+const mapStateToProps = state => {
+    return { articles: state.article }
+};
+
+export default connect(mapStateToProps)(Starred)

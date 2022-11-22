@@ -1,12 +1,21 @@
-import { combineReducers } from 'redux';
+const initialState = {
+    articles: []
+};
 
-const starredReducer = (state = [], action) => {
-    if (action.type === 'ADD_STARRED_ARTICLE') {
-        return state.concat(action.payload);
+const starredReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case "ADD_STARRED_ARTICLE":
+            return {
+                ...state,
+                articles: [...state.articles, action.payload]
+            };
+            case "REMOVE_STARRED_ARTICLE":
+                return {
+                    articles: [...state.articles.filter(article => article !== action.payload)]
+                };
+            default:
+                return state;
     }
-    return state;
-}
+};
 
-export default combineReducers({
-    starred: starredReducer,
-})
+export default starredReducer;
