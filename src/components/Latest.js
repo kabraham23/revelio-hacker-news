@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { addStarred } from '../actions/index.js';
 import StarredButton from './StarredButton.js';
 
 class Latest extends Component {
@@ -25,10 +24,14 @@ class Latest extends Component {
                 {return(
                     <li key={i}>
                     <div className="article">
-                        <a href={article.url}>{article.title}</a>
-                        <p>{article.description}</p>
-                        <p>{article.source.name}</p>
-                        <StarredButton currentArticle={article} />
+                        <a href={article.url}>{article.title}<span className='article-source'>({article.source.name})</span></a>
+                        <div className='news-info'>
+                            <p>a few points by someone </p>
+                            <span> | </span>
+                            <p> comments</p>
+                            <span> | </span>
+                            <StarredButton currentArticle={article} />
+                        </div>
                     </div>
                     </li>
                 )})}
@@ -38,5 +41,4 @@ class Latest extends Component {
         )
     }
 }
-
 export default connect()(Latest);

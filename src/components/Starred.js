@@ -1,24 +1,31 @@
 import React, {Component} from "react";
-import { connect } from "react-redux";
-import StarredItem from "./StarredItem.js";
+import {useSelector, useDispatch} from 'react-redux';
+import { removeStarred } from '../app/starredSlice';
+import { Icon } from '@iconify/react';
 
-class Starred extends Component {
-    render() {
-        const listArticles = .map((article, index) => (
-            <StarredItem article={article} key={index} />
-        ));
-
+export default function Starred(props) {
+    const dispatch = useDispatch()
+        const starredArticles = useSelector(state => {
+            return state.starred.value
+        })
         return (
             <div>
-                <h2>Saved Articles</h2>
-                {listArticles}
+                {
+                    starredArticles.map((article, i) => {
+                        return (
+                            <div>
+                                <ul>
+                                    <li key={i}>
+                                        <a href={article.url}>{article.title}</a>
+                                    </li>
+                                    
+                                </ul>
+                                
+                            </div>
+                        )
+                    })
+                }
+                <button onClick={() => dispatch(removeStarred(props.article))}>{<Icon icon="ion:checkmark-done-sharp" />}clear list</button>
             </div>
         );
     }
-}
-
-const mapStateToProps = state => {
-    return { articles: state.article }
-};
-
-export default connect(null, mapStateToProps)(Starred)

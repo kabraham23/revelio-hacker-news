@@ -1,9 +1,7 @@
 import './App.css';
 import React, { Component} from 'react';
 import { MemoryRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import { connect } from 'react-redux';
 import { Icon } from '@iconify/react';
-import starredReducer from '../src/reducers/index.js';
 import ThemeButton from './components/ThemeButton.js';
 import Latest from './components/Latest.js';
 import Starred from './components/Starred.js';
@@ -14,16 +12,14 @@ class App extends Component {
     <div className="App">
       <Router>
         <div className='header'>
-          <div className='header-left'>
-                <Icon icon="fa6-brands:y-combinator" color="#f56f36" />
-                <h1>Hacker News</h1>
-                <Link to="/">latest</Link>
-                <span> | </span>
-                <Link to="/starred">starred</Link>
-            </div>
-            <div className='header-right'>
-                <ThemeButton />
-            </div>
+          <Icon className='header-icon' icon="fa6-brands:y-combinator" color="#f56f36" />
+          <h1 className='hacker-news'>Hacker News</h1>
+          <div className='component-link'>
+            <Link to="/">latest</Link>
+            <span> | </span>
+            <Link to="/starred">starred</Link>
+          </div>
+          <ThemeButton />
         </div>
         <div className='content'>
           <Routes>
@@ -45,4 +41,4 @@ class App extends Component {
   }
 };
 
-export default connect()(App);
+export default App;

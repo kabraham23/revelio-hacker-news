@@ -1,32 +1,13 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
-import { addStarred } from '../actions/index.js';
+import { useDispatch } from 'react-redux';
+import { addStarred } from '../app/starredSlice';
+import { Icon } from '@iconify/react';
 
-class StarredButton extends Component {
-    state = { object: {} };
-
-    handleChange = e => { this.setState({ object: e.target.value }); };
-
-    handleSubmit = e => {
-        e.preventDefault();
-        this.props.addStarred(this.state.object);
-        this.setState({ object: {} });
-    };
-
-    render() {
-        return (
-            <div>
-                <button onClick={() => addStarred(this.props.currentArticle)}>Star</button>
-            </div>
-        );
-    }
+export default function StarredButton(props) {
+    const dispatch = useDispatch()
+    return (
+        <div>
+            <button className='starred-button' onClick={() => dispatch(addStarred(props.currentArticle))}>{<Icon icon="ic:twotone-star-outline" />}save</button>
+        </div>
+    );
 }
-
-
-const mapDispatchToProps = dispatch => {
-    return {
-        addStarred: object => dispatch(addStarred(object))
-    };
-};
-
-export default connect(null, mapDispatchToProps)(StarredButton);
