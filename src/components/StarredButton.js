@@ -16,10 +16,7 @@ class StarredButton extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input type="object" onChange={this.handleChange} value={this.state.object} />
-                    <input type="submit" value="Create" />
-                </form>
+                <button onClick={() => addStarred(this.props.currentArticle)}>Star</button>
             </div>
         );
     }

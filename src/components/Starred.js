@@ -4,7 +4,7 @@ import StarredItem from "./StarredItem.js";
 
 class Starred extends Component {
     render() {
-        const listArticles = this.props.articles.map((reminder, index) => (
+        const listArticles = .map((article, index) => (
             <StarredItem article={article} key={index} />
         ));
 
@@ -21,4 +21,4 @@ const mapStateToProps = state => {
     return { articles: state.article }
 };
 
-export default connect(mapStateToProps)(Starred)
+export default connect(null, mapStateToProps)(Starred)

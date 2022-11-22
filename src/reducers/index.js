@@ -3,7 +3,11 @@ const initialState = {
 };
 
 const starredReducer = (state = initialState, action) => {
+    console.log(action)
     switch (action.type) {
+        
+        default:
+                return state;
         case "ADD_STARRED_ARTICLE":
             return {
                 ...state,
@@ -13,8 +17,7 @@ const starredReducer = (state = initialState, action) => {
                 return {
                     articles: [...state.articles.filter(article => article !== action.payload)]
                 };
-            default:
-                return state;
+            
     }
 };
 

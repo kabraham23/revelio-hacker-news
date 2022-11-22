@@ -1,9 +1,13 @@
-import React, {Component} from "react";
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { addStarred } from '../actions/index.js';
+import StarredButton from './StarredButton.js';
 
 class Latest extends Component {
     state = {
         data:{}
     }
+
     componentDidMount() {
         this.getData();
     }
@@ -17,15 +21,16 @@ class Latest extends Component {
         return (
             <div id="news">
                 <ol>
-                {Object.keys(this.state.data).length && this.state.data.articles.map((data) => 
+                {Object.keys(this.state.data).length && this.state.data.articles.map((article, i) => 
                 {return(
+                    <li key={i}>
                     <div className="article">
-                        <li>
-                            <a href={data.url}>{data.title}</a>
-                            <p>{data.description}</p>
-                            <p>{data.source.name}</p>
-                        </li>
+                        <a href={article.url}>{article.title}</a>
+                        <p>{article.description}</p>
+                        <p>{article.source.name}</p>
+                        <StarredButton currentArticle={article} />
                     </div>
+                    </li>
                 )})}
                 </ol>
                 <button className="more">show more</button>
@@ -34,4 +39,4 @@ class Latest extends Component {
     }
 }
 
-export default Latest;
+export default connect()(Latest);
