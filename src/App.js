@@ -13,7 +13,7 @@ class App extends Component {
       <Router>
         <div className='header'>
           <Icon className='header-icon' icon="fa6-brands:y-combinator" color="#f56f36" />
-          <h1 className='hacker-news'>Hacker News</h1>
+          <h1 className='hacker-news'>Informed News</h1>
           <div className='component-link'>
             <Link to="/">latest</Link>
             <span> | </span>

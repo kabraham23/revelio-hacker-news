@@ -36,7 +36,6 @@ class Latest extends Component {
                     </li>
                 )})}
                 </ol>
-                <button className="more">show more</button>
             </div>
         )
     }
