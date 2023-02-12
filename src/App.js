@@ -28,11 +28,11 @@ class App extends Component {
           </Routes>
         </div>
         <div className='footer'>
-          <p>Hacker News</p>
+          <p>Informed News</p>
             <div>
-                <Link to="/">latest</Link>
+                <Link className="linkTo" to="/">latest</Link>
                 <span> | </span>
-                <Link to="/starred">starred</Link>
+                <Link className="linkTo" to="/starred">starred</Link>
             </div>
         </div>
         </Router>

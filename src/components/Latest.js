@@ -26,10 +26,6 @@ class Latest extends Component {
                     <div className="article">
                         <a href={article.url}>{article.title}<span className='article-source'>({article.source.name})</span></a>
                         <div className='news-info'>
-                            <p>a few points by someone </p>
-                            <span> | </span>
-                            <p> comments</p>
-                            <span> | </span>
                             <StarredButton currentArticle={article} />
                         </div>
                     </div>
