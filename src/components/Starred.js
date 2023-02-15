@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import {useSelector, useDispatch} from 'react-redux';
 import { removeStarred } from '../app/starredSlice';
 import { Icon } from '@iconify/react';
@@ -25,7 +25,7 @@ export default function Starred(props) {
                         )
                     })
                 }
-                <button onClick={() => dispatch(removeStarred(props.article))}>{<Icon icon="ion:checkmark-done-sharp" />}clear list</button>
+                <button onClick={() => dispatch(removeStarred(props.article))}>{<Icon icon="ion:checkmark-done-sharp" />}Clear All</button>
             </div>
         );
     }
