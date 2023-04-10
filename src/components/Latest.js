@@ -18,7 +18,7 @@ class Latest extends Component {
 
     render() {
         return (
-            <div id="news">
+            <div id="news" className='latest'>
                 <ol>
                 {Object.keys(this.state.data).length && this.state.data.articles.map((article, i) => 
                 {return(

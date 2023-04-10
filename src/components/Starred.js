@@ -9,7 +9,7 @@ export default function Starred(props) {
             return state.starred.value
         })
         return (
-            <div>
+            <div className="starred">
                 {
                     starredArticles.map((article, i) => {
                         return (
